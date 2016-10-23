@@ -1,81 +1,22 @@
-<%= form_for(@consumer) do |f| %>
-  <% if @consumer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@consumer.errors.count, "error") %> prohibited this consumer from being saved:</h2>
 
-      <ul>
-      <% @consumer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :middle_name %><br>
-    <%= f.text_field :middle_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %><br>
-    <%= f.text_field :dob %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br>
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone1 %><br>
-    <%= f.text_field :phone1 %>
-  </div>
-  <div class="field">
-    <%= f.label :phone2 %><br>
-    <%= f.text_field :phone2 %>
-  </div>
-  <div class="field">
-    <%= f.label :address_1 %><br>
-    <%= f.text_field :address_1 %>
-  </div>
-  <div class="field">
-    <%= f.label :address_2 %><br>
-    <%= f.text_field :address_2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :district %><br>
-    <%= f.text_field :district %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zipcode %><br>
-    <%= f.text_field :zipcode %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br>
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :consumer_type %><br>
-    <%= f.text_field :consumer_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <%= simple_form_for(@consumer) do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :middle_name %>
+      <%= f.input :last_name %>
+      <%= f.input :dob, label: 'Date of Birth', as: :date, start_year: Date.today.year - 90,
+                              end_year: Date.today.year - 12 %>
+      <%#= f.input :gender %>
+      <%= f.input :email %>
+      <%= f.input :phone1, label: 'Primary Phone'  %>
+      <%= f.input :phone2, label: 'Secondary Phone' %>
+      <%= f.input :address_1, label: 'Street Address' %>
+      <%#= f.input :city %>
+      <%= f.input :district %>
+      <%#= f.input :state %>
+      <%#= f.input :zipcode %>
+      <%#= f.input :country %>
+      <%#= f.input :consumer_type, collection: 18..60, "Select Consumer Type", selected: 21 %>
+      <%#byebug%>
+      <%= f.input :consumer_type, collection: Consumer::CONSUMER_TYPES, label: "Consumer Type", include_blank: true, selected: @consumer.try(:consumer_type) %>
+      <%= f.button :submit %>
+    <% end %>

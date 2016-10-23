@@ -18,7 +18,7 @@
 <!--               <th>Middle name</th> -->
               <th>Last name</th>
               <th>DOB</th>
-              <th>Gender</th>
+<!--               <th>Gender</th> -->
               <th>Email</th>
               <th>Phone</th>
 <!--               <th>Phone2</th> -->
@@ -32,6 +32,7 @@
               <th>Consumer type</th>
 <!--               <th></th> -->
               <th>Action</th>
+              <th></th>
 <!--               <th></th> -->
             </tr>
           </thead>
@@ -43,7 +44,7 @@
 <!--                 <td><%= consumer.middle_name %></td> -->
                 <td><%= consumer.last_name %></td>
                 <td><%= consumer.dob %></td>
-                <td><%= consumer.gender %></td>
+<!--                 <td><%= consumer.gender %></td> -->
                 <td><%= consumer.email %></td>
                 <td><%= consumer.phone1 %></td>
 <!--                 <td><%= consumer.phone2 %></td> -->
@@ -60,11 +61,13 @@
                 dropdown = [
                            # Link Structure: ['Link Name', link_path(:params), 'link_type'], link_type can be 'ajax', 'static', or 'disabled'
                            ['Add Monthly Consumption', new_monthly_power_consumption_path(consumer: consumer.id),'ajax'],
-                           ['View Monthly Consumption', edit_monthly_power_consumption_path(consumer.id), 'ajax']
+                           ['View Monthly Consumption', edit_monthly_power_consumption_path(consumer.id), 'ajax'],
+                           ['Edit Consumer Details', edit_consumer_path(consumer), 'ajax']
                           ]
                 render 'shared/datatable/consumer_action_dropdown', dropdowns: dropdown, consumer_id: consumer.id, formats: :html
                 %>
                 </td>
+                <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
 <!--            <td><%#= link_to 'Destroy', consumer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
               </tr>
             <% end %>
