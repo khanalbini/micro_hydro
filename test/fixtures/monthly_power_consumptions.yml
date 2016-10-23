@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kwhpm: 1.5
+  month_int: 1
+  year: 1
+  consumer_id: 1
+
+two:
+  kwhpm: 1.5
+  month_int: 1
+  year: 1
+  consumer_id: 1

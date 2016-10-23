@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Monthly Power Consumptions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kwhpm</th>
+      <th>Month int</th>
+      <th>Year</th>
+      <th>Consumer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @monthly_power_consumptions.each do |monthly_power_consumption| %>
+      <tr>
+        <td><%= monthly_power_consumption.kwhpm %></td>
+        <td><%= monthly_power_consumption.month_int %></td>
+        <td><%= monthly_power_consumption.year %></td>
+        <td><%= monthly_power_consumption.consumer_id %></td>
+        <td><%= link_to 'Show', monthly_power_consumption %></td>
+        <td><%= link_to 'Edit', edit_monthly_power_consumption_path(monthly_power_consumption) %></td>
+        <td><%= link_to 'Destroy', monthly_power_consumption, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Monthly power consumption', new_monthly_power_consumption_path %>

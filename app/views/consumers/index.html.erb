@@ -1,0 +1,70 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#consumer-table').DataTable({
+    });
+} );
+</script>
+<p id="notice"><%= notice %></p>
+    <div class="container">
+
+      <div class="col-xs" style="font-size: small">
+        <h4><i class="fa fa-users fa-lg"></i> Consumers</h4> 
+        <table id="consumer-table" class="table table-striped table-bordered" cellspacing="0">
+          <thead>
+            <tr>
+              <th>First name</th>
+<!--               <th>Middle name</th> -->
+              <th>Last name</th>
+              <th>DOB</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Phone</th>
+<!--               <th>Phone2</th> -->
+              <th>Address</th>
+<!--               <th>Address 2</th> -->
+              <th>City</th>
+              <th>District</th>
+<!--               <th>State</th> -->
+<!--               <th>Zipcode</th> -->
+<!--               <th>Country</th> -->
+              <th>Consumer type</th>
+              <th></th>
+              <th></th>
+<!--               <th></th> -->
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @consumers.each do |consumer| %>
+              <tr>
+                <td><%= consumer.first_name %></td>
+<!--                 <td><%= consumer.middle_name %></td> -->
+                <td><%= consumer.last_name %></td>
+                <td><%= consumer.dob %></td>
+                <td><%= consumer.gender %></td>
+                <td><%= consumer.email %></td>
+                <td><%= consumer.phone1 %></td>
+<!--                 <td><%= consumer.phone2 %></td> -->
+                <td><%= consumer.address_1 %></td>
+<!--                 <td><%= consumer.address_2 %></td> -->
+                <td><%= consumer.city %></td>
+                <td><%= consumer.district %></td>
+<!--                 <td><%= consumer.state %></td> -->
+<!--                 <td><%= consumer.zipcode %></td> -->
+<!--                 <td><%= consumer.country %></td> -->
+                <td><%= consumer.consumer_type %></td>
+                <td><%= link_to 'Show', consumer %></td>
+                <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
+<!--                 <td><%= link_to 'Destroy', consumer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to 'New Consumer', new_consumer_path %>
+      </div>
+
+    </div><!-- /.container -->
+
+
+<!-- <table id="consumer-table" class="table-striped display responsive no-wrap"> -->
+

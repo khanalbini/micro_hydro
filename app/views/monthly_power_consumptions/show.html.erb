@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kwhpm:</strong>
+  <%= @monthly_power_consumption.kwhpm %>
+</p>
+
+<p>
+  <strong>Month int:</strong>
+  <%= @monthly_power_consumption.month_int %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @monthly_power_consumption.year %>
+</p>
+
+<p>
+  <strong>Consumer:</strong>
+  <%= @monthly_power_consumption.consumer_id %>
+</p>
+
+<%= link_to 'Edit', edit_monthly_power_consumption_path(@monthly_power_consumption) %> |
+<%= link_to 'Back', monthly_power_consumptions_path %>

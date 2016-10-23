@@ -1,0 +1,2 @@
+module MonthlyPowerConsumptionsHelper
+end

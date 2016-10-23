@@ -1,0 +1,1 @@
+json.array! @monthly_power_consumptions, partial: 'monthly_power_consumptions/monthly_power_consumption', as: :monthly_power_consumption
