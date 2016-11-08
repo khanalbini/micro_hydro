@@ -1,6 +1,10 @@
-<h1>Editing Consumer</h1>
+<div class="container">
+  <div class="col-xs-12 col-md-6">
+    <h4><i class="fa fa-edit fa-lg"></i> Editing Consumer - <small><%=@consumer.full_name%></small></h4> <br /> 
+    <%= render 'form' %>
+    <br />
+    <%= link_to 'Show', @consumer %> |
+    <%= link_to 'Back', consumers_path %>
+  </div>
+</div>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @consumer %> |
-<%= link_to 'Back', consumers_path %>

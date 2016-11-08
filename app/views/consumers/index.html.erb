@@ -7,9 +7,14 @@
     });
 } );
 </script>
+<style>
+.col-md-6 {
+  text-align: right;
+}
+</style>
     <div class="container-fluid">
 
-      <div class="col-sm" style="font-size: 12px;">
+      <div class="col-sm" style="font-size: 14px;">
         <h4><i class="fa fa-users fa-lg"></i> Consumers</h4> 
         <table id="consumer-table" class="table table-striped table-bordered" cellspacing="0">
           <thead>
@@ -31,8 +36,8 @@
 <!--               <th>Country</th> -->
               <th>Consumer type</th>
 <!--               <th></th> -->
-              <th>Action</th>
               <th></th>
+<!--               <th></th> -->
 <!--               <th></th> -->
             </tr>
           </thead>
@@ -60,20 +65,20 @@
                 <%=
                 dropdown = [
                            # Link Structure: ['Link Name', link_path(:params), 'link_type'], link_type can be 'ajax', 'static', or 'disabled'
-                           ['Add Monthly Consumption', new_monthly_power_consumption_path(consumer: consumer.id),'ajax'],
-                           ['View Monthly Consumption', edit_monthly_power_consumption_path(consumer.id), 'ajax'],
-                           ['Edit Consumer Details', edit_consumer_path(consumer), 'ajax']
+                           ['Add Consumption', new_monthly_power_consumption_path(consumer: consumer.id),'ajax'],
+                           ['View Consumptions', edit_monthly_power_consumption_path(consumer.id), 'ajax'],
+                           ['Edit Consumer', edit_consumer_path(consumer, consumer_id: consumer.id), 'ajax']
                           ]
                 render 'shared/datatable/consumer_action_dropdown', dropdowns: dropdown, consumer_id: consumer.id, formats: :html
                 %>
                 </td>
-                <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
+<!--                 <td><%#= link_to 'Edit', edit_consumer_path(consumer) %></td> -->
 <!--            <td><%#= link_to 'Destroy', consumer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
               </tr>
             <% end %>
           </tbody>
         </table>
-        <%= link_to 'New Consumer', new_consumer_path %>
+        <%= link_to 'Add New Consumer', new_consumer_path, :class => "btn btn-primary" %>
       </div>
 
     </div><!-- /.container -->

@@ -10,6 +10,7 @@ class ConsumersController < ApplicationController
   # GET /consumers/1
   # GET /consumers/1.json
   def show
+    #redirect_to "/consumers/#{params[:id]}/edit", consumer_id: params[:id], remote: true
   end
 
   # GET /consumers/new
@@ -19,6 +20,11 @@ class ConsumersController < ApplicationController
 
   # GET /consumers/1/edit
   def edit
+    @row_id = params[:id]
+    respond_to do |format|
+      format.js { render "edit"}
+      format.html { render "edit"}
+    end
   end
 
   # POST /consumers
@@ -40,13 +46,17 @@ class ConsumersController < ApplicationController
   # PATCH/PUT /consumers/1
   # PATCH/PUT /consumers/1.json
   def update
+    @row_id = params[:id]
     respond_to do |format|
       if @consumer.update(consumer_params)
-        format.html { redirect_to @consumer, notice: 'Consumer was successfully updated.' }
-        format.json { render :show, status: :ok, location: @consumer }
+        #format.html { redirect_to @consumer, notice: 'Consumer was successfully updated.' }
+        #format.html { redirect_to '/', notice: 'Consumer was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @consumer }
+        format.js { render "update_consumer_result_child_row.js.erb", consumer: @consumer  }
       else
-        format.html { render :edit }
-        format.json { render json: @consumer.errors, status: :unprocessable_entity }
+        #format.html { render :edit }
+        #format.json { render json: @consumer.errors, status: :unprocessable_entity }
+        format.js { render :file => "update_consumer_result_child_row.js.erb", consumer: @consumer }
       end
     end
   end

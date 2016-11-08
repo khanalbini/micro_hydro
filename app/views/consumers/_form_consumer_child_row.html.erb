@@ -1,0 +1,35 @@
+<%= simple_form_for(@consumer, remote: true)  do |f| %>
+<table class="table table-bordered">
+  <tr>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>   
+  </tr>    
+  <tr>
+    <td><%= f.input :first_name, label: false %></td>
+    <td><%= f.input :middle_name, label: false %></td>
+    <td><%= f.input :last_name, label: false %></td>           
+  </tr>
+  <tr>
+    <th>DOB</th>
+    <th>Email</th>
+    <th>Phone</th>   
+  </tr>  
+  <tr>
+    <td><%= f.input :dob, label: false, as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12 %></td>
+    <td><%= f.input :email, label: false %></td>
+    <td><%= f.input :phone1, label: false  %></td>           
+  </tr>
+  <tr>
+    <th>Address</th>
+    <th>District</th>
+    <th>Consumer Type</th>   
+  </tr> 
+  <tr>
+    <td><%= f.input :address_1, label: false%></td>
+    <td><%= f.input :district, label: false %></td>
+    <td><%= f.input :consumer_type, collection: Consumer::CONSUMER_TYPES, label: false, include_blank: true, selected: @consumer.try(:consumer_type) %></td>          
+  </tr>
+</table>
+<div align="center"><%= f.button :submit, :class => "btn btn-primary", remote: true%></div>
+<% end %>
