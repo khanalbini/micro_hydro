@@ -1,21 +1,7 @@
 var $parent_row = $("#consumer_action_<%= @row_id %>").closest('TR');
-//var $parent_row = containing_row;
-//var $parent_row = $(".table:first > tbody > tr:not(tr.child-row)").eq(<%= @row %>);
-
 if ( $('tr.child-row:visible').length > 0 ) {
   $('tr.child-row:visible').remove();
   $("li>a:contains('Collapse Form')").addClass('disabled');
 
 }
-$parent_row.after('<tr class="child-row"><td colspan="100"><div align="center"><h1>Sucessfully Updated.</h1></div></td></tr>');
-alert("$parent_row: " + $parent_row);
-// if ( $parent_row.next().hasClass('child-row') ) {
-// //
-// alert("IFFFF");
-// } 
-// else {
-//   //$parent_row.after('<tr class="child-row"><td colspan="100"><%= j render "edit_consumer_child_row"%></td></tr>');
-//   $parent_row.after('<tr class="child-row"><td colspan="100">FUck Yeah!</td></tr>');
-//   // $("li>a:contains('Collapse Form')").eq(containing_row.index()).removeClass('disabled');
-//   // $('.dropdown.pull-right').removeClass('open');
-// }
+$parent_row.after('<tr class="child-row"><td colspan="100"><%= j render "edit_consumer_child_row"%></td></tr>');

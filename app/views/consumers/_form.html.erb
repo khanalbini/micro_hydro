@@ -3,20 +3,13 @@
       <%= f.input :first_name %>
       <%= f.input :middle_name %>
       <%= f.input :last_name %>
-      <%= f.input :dob, label: 'Date of Birth', as: :date, start_year: Date.today.year - 90,
-                              end_year: Date.today.year - 12 %>
-      <%#= f.input :gender %>
+      <%= f.input :dob, label: 'Date of Birth', as: :date, start_year: Date.today.year - 90, end_year: Date.today.year - 12 %>
       <%= f.input :email %>
       <%= f.input :phone1, label: 'Primary Phone'  %>
       <%= f.input :phone2, label: 'Secondary Phone' %>
       <%= f.input :address_1, label: 'Street Address' %>
-      <%#= f.input :city %>
+      <%= f.input :city %>
       <%= f.input :district %>
-      <%#= f.input :state %>
-      <%#= f.input :zipcode %>
-      <%#= f.input :country %>
-      <%#= f.input :consumer_type, collection: 18..60, "Select Consumer Type", selected: 21 %>
-      <%#byebug%>
       <%= f.input :consumer_type, collection: Consumer::CONSUMER_TYPES, label: "Consumer Type", include_blank: true, selected: @consumer.try(:consumer_type) %>
       <%= f.button :submit %>
     <% end %>

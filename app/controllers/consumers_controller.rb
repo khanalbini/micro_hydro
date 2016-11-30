@@ -27,6 +27,15 @@ class ConsumersController < ApplicationController
     end
   end
 
+    # GET /consumers/1/edit
+  def edit_monthly_consumptions
+    @row_id = params[:id]
+    respond_to do |format|
+      format.js { render "edit"}
+      format.html { render "edit"}
+    end
+  end
+
   # POST /consumers
   # POST /consumers.json
   def create
@@ -52,7 +61,7 @@ class ConsumersController < ApplicationController
         #format.html { redirect_to @consumer, notice: 'Consumer was successfully updated.' }
         #format.html { redirect_to '/', notice: 'Consumer was successfully updated.' }
         #format.json { render :show, status: :ok, location: @consumer }
-        format.js { render "update_consumer_result_child_row.js.erb", consumer: @consumer  }
+        format.js { render "update_consumer_result_child_row.js.erb", consumer: @consumer, notice: 'Consumer was successfully updated.'}
       else
         #format.html { render :edit }
         #format.json { render json: @consumer.errors, status: :unprocessable_entity }
